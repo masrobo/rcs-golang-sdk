@@ -31,13 +31,12 @@ import (
 )
 
 func main() {
-	```go
-ctrl, err := sdk.NewRcsController(sdk.Config{
-	BaseURL: "https://api.boticz.cn/open",
-	AppID:   "your-app-id",
-	AppKey:  "your-app-key",
-})
+	ctrl, err := sdk.NewRcsController(sdk.Config{
+		BaseURL: "https://api.boticz.cn/open",
+		AppID:   "your-app-id",
+		AppKey:  "your-app-key",
 	})
+
 	if err != nil {
 		log.Fatal(err)
 	}

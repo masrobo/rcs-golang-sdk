@@ -1,4 +1,4 @@
-module github.com/boticz/rcs-golang-sdk
+module github.com/masrobo/rcs-golang-sdk
 
 go 1.24.0
 
