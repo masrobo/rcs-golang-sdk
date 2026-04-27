@@ -15,7 +15,7 @@
 ## Install
 
 ```bash
-go get github.com/boticz/rcs-golang-sdk/masrobo
+go get github.com/masrobo/rcs-golang-sdk
 ```
 
 ## Quick Start
@@ -27,7 +27,7 @@ import (
 	"context"
 	"log"
 
-	sdk "github.com/boticz/rcs-golang-sdk/masrobo"
+	sdk "github.com/masrobo/rcs-golang-sdk/masrobo"
 )
 
 func main() {
