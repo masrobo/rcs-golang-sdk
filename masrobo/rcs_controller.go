@@ -1,7 +1,8 @@
 package masrobo
 
 type RcsController struct {
-	client *Client
+	client    *Client
+	IotDevice *IotDeviceService
 }
 
 // NewRcsController creates a new RCS controller.
@@ -17,5 +18,8 @@ func NewRcsController(cfg Config) (*RcsController, error) {
 	}
 
 	client.IotDevice = &IotDeviceService{client: client}
-	return &RcsController{client: client}, nil
+	return &RcsController{
+		client:    client,
+		IotDevice: client.IotDevice,
+	}, nil
 }

@@ -46,9 +46,10 @@ func (c Config) normalizedAppKey() string {
 
 func (c Config) GenerateJWTToken() (string, error) {
 	claims := jwt.MapClaims{
-		"app_id": c.normalizedAppID(),
-		"iat":    time.Now().Unix(),
-		"exp":    time.Now().Add(time.Hour).Unix(), // 1 hour expiration
+		"app_id":  c.normalizedAppID(),
+		"app_key": c.normalizedAppKey(),
+		"iat":     time.Now().Unix(),
+		"exp":     time.Now().Add(time.Hour).Unix(), // 1 hour expiration
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)

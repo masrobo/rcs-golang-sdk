@@ -11,7 +11,7 @@ type IotDeviceInfo struct {
 	CategoryCode    string         `json:"category_code"`
 	UserID          int64          `json:"user_id"`
 	DeviceName      string         `json:"device_name"`
-	ActiveType      []string       `json:"active_type"`
+	ActiveType      []any          `json:"active_type"`
 	Status          int            `json:"status"`
 	ActiveTime      time.Time      `json:"active_time"`
 	DeactiveTime    *time.Time     `json:"deactive_time,omitempty"`

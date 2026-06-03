@@ -18,3 +18,6 @@ go.work.sum
 .idea/
 .vscode/
 .DS_Store
+
+# Config file with sensitive credentials
+config.yaml
