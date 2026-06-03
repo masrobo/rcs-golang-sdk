@@ -63,7 +63,7 @@ func (c *Client) do(ctx context.Context, method, path string, query any, body an
 		return fmt.Errorf("read response body: %w", err)
 	}
 
-	var env apiEnvelope
+	var env BaseResponse
 	if len(rawBody) > 0 {
 		if err := json.Unmarshal(rawBody, &env); err != nil {
 			if resp.StatusCode >= http.StatusBadRequest {

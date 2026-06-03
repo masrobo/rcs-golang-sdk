@@ -34,6 +34,11 @@ type BindDeviceRequest struct {
 	DeviceID string `json:"device_id" validate:"required"`
 }
 
+// DeviceInfoRequest is the request for querying device information.
+type DeviceInfoRequest struct {
+	DeviceID string `json:"device_id" validate:"required"` // 设备ID
+}
+
 // DeviceSettingRequest is the request for updating device settings.
 type DeviceSettingRequest struct {
 	DeviceID string `json:"device_id" validate:"required"` // Device ID

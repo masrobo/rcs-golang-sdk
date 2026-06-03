@@ -7,7 +7,7 @@ import (
 
 const successCode = 200
 
-type apiEnvelope struct {
+type BaseResponse struct {
 	Code int             `json:"code"`
 	Msg  string          `json:"msg"`
 	Data json.RawMessage `json:"data"`
@@ -20,7 +20,7 @@ func decodeSuccessData(data json.RawMessage, out any) error {
 	return json.Unmarshal(data, out)
 }
 
-func newAPIError(statusCode int, env *apiEnvelope, rawBody []byte) *APIError {
+func newAPIError(statusCode int, env *BaseResponse, rawBody []byte) *APIError {
 	if env != nil {
 		return &APIError{
 			StatusCode: statusCode,

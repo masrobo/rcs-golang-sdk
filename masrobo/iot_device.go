@@ -50,3 +50,17 @@ func (s *IotDeviceService) Setting(ctx context.Context, req DeviceSettingRequest
 
 	return s.client.do(ctx, http.MethodPost, "/iot/device/setting", nil, req, nil)
 }
+
+// GetDeviceInfo queries device information.
+func (s *IotDeviceService) GetDeviceInfo(ctx context.Context, req DeviceInfoRequest) (*IotDeviceInfo, error) {
+	if err := validateRequest(req); err != nil {
+		return nil, err
+	}
+
+	resp := &IotDeviceInfo{}
+	if err := s.client.do(ctx, http.MethodPost, "/iot/device/info", nil, req, resp); err != nil {
+		return nil, err
+	}
+
+	return resp, nil
+}
