@@ -9,6 +9,7 @@
 - IoT device APIs
   - Get latest device data
   - Send device command
+  - Add device
   - Bind device
   - Update device settings
 
@@ -84,6 +85,19 @@ err = ctrl.IotDevice.SendDeviceCommand(ctx, sdk.SendDeviceCommandRequest{
 err = ctrl.IotDevice.BindDevice(ctx, sdk.BindDeviceRequest{
 	DeviceID: "device001",
 })
+```
+
+### Add device
+
+```go
+result, err := ctrl.IotDevice.AddDevice(ctx, sdk.AddDeviceRequest{
+	ProjectName: "demo_product",
+	DeviceID:    "device001",
+})
+if err != nil {
+	log.Fatal(err)
+}
+log.Printf("qrcode_url: %s", result.QrcodeUrl)
 ```
 
 ### Update device settings
