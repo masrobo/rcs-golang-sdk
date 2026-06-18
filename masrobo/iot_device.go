@@ -33,6 +33,20 @@ func (s *IotDeviceService) SendDeviceCommand(ctx context.Context, req SendDevice
 	return s.client.do(ctx, http.MethodPost, "/iot/device/command", nil, req, nil)
 }
 
+// AddDevice adds a device to the current application under a given project.
+func (s *IotDeviceService) AddDevice(ctx context.Context, req AddDeviceRequest) (*DeviceQRCodeInfo, error) {
+	if err := validateRequest(req); err != nil {
+		return nil, err
+	}
+
+	resp := &DeviceQRCodeInfo{}
+	if err := s.client.do(ctx, http.MethodPost, "/iot/device/add", nil, req, resp); err != nil {
+		return nil, err
+	}
+
+	return resp, nil
+}
+
 // BindDevice binds a device to the current application user.
 func (s *IotDeviceService) BindDevice(ctx context.Context, req BindDeviceRequest) error {
 	if err := validateRequest(req); err != nil {

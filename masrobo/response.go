@@ -45,3 +45,7 @@ type GetLatestDeviceDataResponse struct {
 	TopicName   string                  `json:"topic_name"`
 	Record      *LatestDeviceDataRecord `json:"record"`
 }
+
+type DeviceQRCodeInfo struct {
+	QrcodeUrl string `json:"qrcode_url"` // 二维码图片URL
+}

@@ -71,3 +71,18 @@ func TestGetDeviceInfo(t *testing.T) {
 	t.Logf("产品名称: %s", result.ProductName)
 	t.Logf("设备状态: %d", result.Status)
 }
+
+// TestAddDevice 添加设备，验证返回二维码信息
+func TestAddDevice(t *testing.T) {
+	controller, cfg := createController(t)
+
+	result, err := controller.IotDevice.AddDevice(context.Background(), masrobo.AddDeviceRequest{
+		ProjectName: cfg.ProductName,
+		DeviceID:    cfg.DeviceID,
+	})
+	require.NoError(t, err)
+	require.NotNil(t, result)
+	assert.NotEmpty(t, result.QrcodeUrl, "qrcode_url 不应为空")
+
+	t.Logf("AddDevice 调用成功: qrcode_url=%s", result.QrcodeUrl)
+}

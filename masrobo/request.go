@@ -29,6 +29,12 @@ type SendDeviceCommandRequest struct {
 	TopicName   DeviceCommandTopicNameEnums `json:"topic_name" validate:"required,oneof=remote_control"`
 }
 
+// AddDeviceRequest is the request for adding a device under a project.
+type AddDeviceRequest struct {
+	ProjectName string `json:"project_name" validate:"required"`
+	DeviceID    string `json:"device_id" validate:"required"`
+}
+
 // BindDeviceRequest is the request for binding a device to a user account.
 type BindDeviceRequest struct {
 	DeviceID string `json:"device_id" validate:"required"`
