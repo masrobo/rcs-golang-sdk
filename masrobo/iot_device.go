@@ -47,6 +47,20 @@ func (s *IotDeviceService) AddDevice(ctx context.Context, req AddDeviceRequest) 
 	return resp, nil
 }
 
+// BindDeviceProduct binds a device to a product.
+func (s *IotDeviceService) BindDeviceProduct(ctx context.Context, req BindDeviceProductRequest) (*DeviceQRCodeInfo, error) {
+	if err := validateRequest(req); err != nil {
+		return nil, err
+	}
+
+	resp := &DeviceQRCodeInfo{}
+	if err := s.client.do(ctx, http.MethodPost, "/iot/device/bind_product", nil, req, resp); err != nil {
+		return nil, err
+	}
+
+	return resp, nil
+}
+
 // BindDevice binds a device to the current application user.
 func (s *IotDeviceService) BindDevice(ctx context.Context, req BindDeviceRequest) error {
 	if err := validateRequest(req); err != nil {

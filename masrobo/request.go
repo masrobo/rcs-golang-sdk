@@ -35,6 +35,12 @@ type AddDeviceRequest struct {
 	DeviceID    string `json:"device_id" validate:"required"`
 }
 
+// BindDeviceProductRequest is the request for binding a device to a product.
+type BindDeviceProductRequest struct {
+	ProjectName string `json:"project_name" validate:"required"`
+	DeviceID    string `json:"device_id" validate:"required"`
+}
+
 // BindDeviceRequest is the request for binding a device to a user account.
 type BindDeviceRequest struct {
 	DeviceID string `json:"device_id" validate:"required"`
