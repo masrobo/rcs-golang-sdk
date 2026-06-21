@@ -11,6 +11,7 @@
   - Send device command
   - Add device
   - Bind device
+  - Bind device to product
   - Update device settings
 
 ## Install
@@ -85,6 +86,19 @@ err = ctrl.IotDevice.SendDeviceCommand(ctx, sdk.SendDeviceCommandRequest{
 err = ctrl.IotDevice.BindDevice(ctx, sdk.BindDeviceRequest{
 	DeviceID: "device001",
 })
+```
+
+### Bind device to product
+
+```go
+result, err := ctrl.IotDevice.BindDeviceProduct(ctx, sdk.BindDeviceProductRequest{
+	ProjectName: "demo_product",
+	DeviceID:    "device001",
+})
+if err != nil {
+	log.Fatal(err)
+}
+log.Printf("qrcode_url: %s", result.QrcodeUrl)
 ```
 
 ### Add device
